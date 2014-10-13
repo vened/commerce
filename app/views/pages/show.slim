@@ -1,0 +1,7 @@
+=render 'carousel' if @carousel
+
+h1=@page.name
+p= raw @page.body
+
+
+=render 'feedback_form' if @page.feedback

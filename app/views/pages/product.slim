@@ -1,0 +1,16 @@
+.row
+  .col-xs-6
+    h1= @product.name
+    p= @product.price
+    p= @product.body
+    ul
+      -@product.photos.each do |photo|
+        li=image_tag photo.photo.thumb
+  
+  .col-xs-6
+    -@product.properties.each do |property|
+      h2= property.name
+      ul
+        -@product.values.each do |value|
+          -if property.values.exists?(value)
+            li=value.value

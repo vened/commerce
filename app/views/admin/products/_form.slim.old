@@ -1,0 +1,37 @@
+.panel.panel-success (ng-controller="ProductsFormCtrl")
+  .panel-heading.clearfix
+    h3.panel-title.pull-left Добавить новый товар
+
+  .panel-body
+    form ng-init="obj.authenticity_token = '#{form_authenticity_token}'" 
+      .alert.alert-danger ng-if="errors"
+        ul ng-repeat="error in errors"
+          li ng-bind="error"
+      .row
+        .col-sm-6
+          .form-group
+            label for="name_ru" Название
+            input.form-control#name_ru name="name_ru" type="text" ng-model="obj.product.name" 
+          .form-group
+            label for="body_ru" Описание
+            textarea.form-control#body_ru rows="4" ng-model="obj.product.body"
+          .form-group
+            label for="price" Цена
+            input.form-control#price type="text" ng-model="obj.product.price"
+
+
+          photos-uploaded resource-name="product" resource-id="#{@product.id}"
+          uploader-component upload-url="/admin/product/photos/upload" resource-name="product_id" resource-id="#{@product.id}"
+
+          =render 'admin/products/categories'
+        .col-sm-6
+          =render 'admin/products/properties'
+
+
+  .panel-footer
+    -if @product.created_at.nil?
+      button.btn.btn-success type="submit" ng-click="submit()" Добавить
+    -else
+      button.btn.btn-success type="submit" ng-click="update(#{@product.id})" ng-init="findProduct(#{@product.id})" Обновить
+    | &nbsp;
+    =link_to "Отменить", admin_products_path, :class => "btn btn-default"

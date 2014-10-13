@@ -1,0 +1,54 @@
+.page-header
+  h2 Список товаров
+  .page-header-actions
+    = link_to new_admin_product_path, class: 'btn btn-success' do
+      i class="fa fa-plus"
+      ' Добавить товар
+
+.content
+  table class="table table-bordered"
+    thead
+      tr
+        th id
+        th Название
+        th Описание
+        th Цена (руб.)
+        th Фото
+        th Свойства
+        th Категория
+        th Действия
+  
+    tbody
+      -@products.each do |item|
+        tr
+          td=item.id
+          td=item.name
+          td=item.body
+          td=item.price
+          td
+            .row
+            -item.photos.each do |photo|
+              .col-sm-6
+                .thumbnail
+                  =image_tag photo.photo.thumb
+          td
+            -item.properties.each do |property|
+              dl
+                dt=property.name
+                -item.values.each do |value|
+                  -if property.values.exists?(value)
+                    dd=value.value
+          td
+            ul
+              -item.categories.each do |category|
+                li=category.name
+          td
+            = link_to edit_admin_product_path(item), class: 'btn btn-success' do
+              span.fa.fa-lg.fa-edit
+            br
+            br
+            = link_to admin_product_path(item), class: 'btn btn-danger', method: "delete" do
+              span.fa.fa-lg.fa-trash
+              
+              
+              

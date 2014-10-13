@@ -1,0 +1,20 @@
+<div class="form-group">
+  <label>Категории товара</label>
+  <%- @categories.each do |category| %>
+      <div class="checkbox">
+        <label>
+          <%- if @product.categories.exists?(category.id) %>
+              <input ng-checked="true" type="checkbox"
+                     ng-model="obj.product.product_categories[<%= category.id %>].ids"
+                     ng-true-value="<%= category.id %>">
+          <%- else %>
+              <input ng-checked="false" type="checkbox"
+                     ng-model="obj.product.product_categories[<%= category.id %>].ids"
+                     ng-true-value="<%= category.id %>">
+          <% end %>
+          <%= category.name %>
+        </label>
+      </div>
+  <% end %>
+</div>
+

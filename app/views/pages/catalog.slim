@@ -1,0 +1,5 @@
+h1 Catalog products
+
+ul
+  -@categories.each do |category|
+    li=link_to category.name, category.front_full_path

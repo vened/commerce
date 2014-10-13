@@ -1,0 +1,13 @@
+h1= @category.name
+
+=render 'filter'
+
+hr
+
+/ul.nav.nav-tabs
+/- @category.children.each do |category|
+  li=link_to category.name, category.front_full_path
+
+ul
+  -@category.products.each do |product|
+    li=link_to product.name, "#{@category.front_full_path + '/product/' + product.id.to_s}"

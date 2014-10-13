@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>Rocket-CMS</title>
+  <%= stylesheet_link_tag 'aminko/aminko', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="header">
+  <a class="logo" href="/" title="АМИНКО GROUP"></a>
+
+  <div class="feedback">
+    <a class="feedback-link" href="/contacts/">Обратная связь</a>
+
+    <div class="feedback-phone" title="+7(495)779-10-23"></div>
+  </div>
+  <%= render_cell :menu, :list %>
+</div>
+
+<div class="main">
+  <%= yield %>
+</div>
+
+
+<div class="footer">
+  <div class="footer-cell">
+    <p>&copy; Copyright, 2014 “Аминко”</p>
+    <p>Все права защищены</p>
+  </div>
+
+  <div class="footer-cell">
+    <p>Наш телефон:</p>
+    <p class="phone">+7 (495) 779 10 23</p>
+  </div>
+
+  <div class="footer-cell">
+    <a class="feedback" href="/contacts/">Обратная связь</a>
+  </div>
+
+  <div class="footer-cell">
+    <div class="create">
+      Разработка и поддержка сайта - 
+      <%= link_to 'http://rocket-web.ru/', {:target => '_blank'} do %>
+          <%= image_tag "aminko/create.png", alt: "Веб студия Rocket-web" %>
+      <%- end %>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="container">-->
+<!--<%= render_cell :menu, :list %>-->
+
+<!--<%= yield %>-->
+<!--</div>-->
+
+</body>
+</html>
