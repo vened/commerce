@@ -71,7 +71,7 @@ p, ul{
 	.feedback{
 		position: absolute;
 		right: 35px;
-		top: 30px;
+		top: 15px;
 		text-align: right;
 
 		.feedback-link{
@@ -82,11 +82,11 @@ p, ul{
 		}
 
 		.feedback-phone{
-            display: none;
 			height: 23px;
 			width: 205px;
-			margin: 20px 0 0 0;
-			background: image_url('aminko/phone.png') no-repeat 0 0;
+			margin: 10px 0 0 0;
+			color: #d7d2be;
+			font-size: 24px;
 		}
 	}
 
