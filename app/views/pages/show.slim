@@ -1,5 +1,8 @@
 =render 'carousel' if @carousel
 
+-content_for :title do
+  =@page.name
+
 h1=@page.name
 p= raw @page.body
 

@@ -5,11 +5,11 @@
 	angular.module('uploader.directives', ["angularFileUpload"])
 
 
-	function uploaderComponent(FileUploader)
+	function uploaderComponent(FileUploader, UPLOADER_COMPONENT)
 	{
 		return{
 			restrict   : 'E',
-			templateUrl: '/assets/admin/uploader/uploader.component.html',
+			templateUrl: UPLOADER_COMPONENT,
 			scope      : {
 				uploadUrl   : '@uploadUrl',
 				resourceName: '@resourceName',
@@ -120,11 +120,11 @@
 	}
 
 
-	function photosUploaded(UploadedPhotosService)
+	function photosUploaded(UploadedPhotosService, UPLOADER_PHOTOS)
 	{
 		return{
 			restrict   : 'E',
-			templateUrl: '/assets/admin/uploader/photos.uploaded.html',
+			templateUrl: UPLOADER_PHOTOS,
 			scope      : {
 				resourceName: '@resourceName',
 				resourceId  : '@resourceId',
@@ -152,12 +152,14 @@
 				}
 
 
+				$scope.saveDataPhoto = true;
 				$scope.submit = function (photo)
 				{
+					$scope.saveDataPhoto = false;
 					photo.photo = null;
 					UploadedPhotosService.edit(photo).success(function (data)
 					{
-						console.log(data)
+						$scope.saveDataPhoto = true;
 					})
 				}
 
@@ -173,8 +175,8 @@
 
 
 	uploaderThumb.$inject = ['$window'];
-	uploaderComponent.$inject = ['FileUploader'];
-	photosUploaded.$inject = ['UploadedPhotosService'];
+	uploaderComponent.$inject = ['FileUploader', 'UPLOADER_COMPONENT'];
+	photosUploaded.$inject = ['UploadedPhotosService', 'UPLOADER_PHOTOS'];
 	angular
 		.module('uploader.directives')
 		.directive('uploaderThumb', uploaderThumb)

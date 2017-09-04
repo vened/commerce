@@ -24,6 +24,10 @@
 			<label class="control-label">Описание</label>
 			<textarea class="form-control input-sm" rows="2" placeholder="Описание" ng-model="photo.body"></textarea>
 		</div>
-		<span class="btn btn-success" ng-click="submit(photo)">Сохранить описание фото</span>
+		<span class="btn btn-success" ng-click="submit(photo)">
+			<i class="fa fa-floppy-o" ng-show="saveDataPhoto"></i>
+			<i class="fa fa-circle-o-notch fa-spin" ng-show="!saveDataPhoto"></i>
+			Сохранить описание фото
+		</span>
 	</div>
 </div>

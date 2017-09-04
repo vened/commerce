@@ -13,7 +13,7 @@
         dt Путь: 
         dd ng-bind="errors.path[0]"
     .row
-      .col-sm-9
+      .col-sm-5
         .form-group
           label for="name_ru" Название
           input.form-control#name_ru name="name" type="text" ng-model="obj.name" 
@@ -21,18 +21,8 @@
         .form-group
           label for="path" Путь(url, например - kamod, только латиницей)
           input.form-control#path type="text" ng-model="obj.path"
-
-        .form-group.rich
-          label for="body" Содержимое
-          textarea.form-control#body name="obj.body" ng-model="obj.body" rows="10" 
-
-      .col-sm-3
-        .form-group
-        .checkbox
-          label
-            input type="checkbox" ng-value="0" ng-model="obj.menu"
-            | Показывать страницу в меню
-        
+      
+      .col-md-4
         .form-group
           label for="parent_id" Привязать к категории каталога
           select.form-control#parent_id ng-model="category" ng-change="setCatalog(category)"
@@ -47,8 +37,22 @@
               option value="#{i.id}" 
                 = "#{'-' * i.level} #{i.name}"
 
+      .col-sm-3
+        .form-group
+          .checkbox
+            label
+              input type="checkbox" ng-value="0" ng-model="obj.menu"
+              | Показывать страницу в меню
+
+
         .form-group
           .checkbox
             label
               input type="checkbox" value="true" ng-model="obj.feedback"
               | Привязать к странице форму обратной связи
+
+
+
+    .form-group.rich
+      label for="body" Содержимое
+      textarea.form-control#body name="obj.body" ng-model="obj.body" rows="10" redactor="" 

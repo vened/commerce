@@ -3,10 +3,10 @@
 
 ul class="sidebar-nav"
   li=link_to "Станицы сайта", admin_pages_path
-  li=link_to "Товары", admin_products_path
-  li ng-class="{'active': menuActive == 'property'}"
+  /li=link_to "Товары", admin_products_path
+  /li ng-class="{'active': menuActive == 'property'}"
     =link_to t('properties'), '#/properties'
-  li=link_to "Категории товаров", admin_categories_path
+  /li=link_to "Категории товаров", admin_categories_path
   li ng-class="{'active': menuActive == 'galleries'}"
     =link_to "Фотографии", '#/galleries'
   li=link_to "Обратная связь", admin_feedbacks_path

@@ -3,6 +3,33 @@ body{
 	width: 100%;
 	color: #6b5846;
 	background: image-url('aminko/body_bg.jpg');
+	font-size: 13px;
+}
+
+h1{
+	padding-top: 20px;
+	font-size: 26px;
+	line-height: 32px;
+	background: image-url('aminko/line_dot.png') repeat-x 0 0;
+}
+h2{
+	font-size: 18px;
+	line-height: 28px;
+}
+h3{
+	font-size: 16px;
+	line-height: 23px;
+}
+h4{
+	font-size: 14px;
+	line-height: 20px;
+}
+
+hr{
+	border-top: 1px dotted #666;
+}
+p, ul{
+	margin: 18px 0;
 }
 
 .wrapper{
@@ -14,10 +41,12 @@ body{
 	@extend .wrapper;
 	position: relative;
 	height: 212px;
-	margin-top: 50px;
+	margin-top: 0;
 	margin-bottom: 20px;
-	background: image-url('aminko/header_bg.jpg');
+	background: image-url('aminko/header_bg.jpg') -2px 0;
+    background-size: 108%;
 	border: 1px solid white;
+    border-top: none;
 
 	a{
 		color: #d7d2be;
@@ -42,7 +71,7 @@ body{
 	.feedback{
 		position: absolute;
 		right: 35px;
-		top: 15px;
+		top: 30px;
 		text-align: right;
 
 		.feedback-link{
@@ -53,11 +82,11 @@ body{
 		}
 
 		.feedback-phone{
+            display: none;
 			height: 23px;
 			width: 205px;
-			margin: 10px 0 0 0;
-			color: #d7d2be;
-			font-size: 24px;
+			margin: 20px 0 0 0;
+			background: image_url('aminko/phone.png') no-repeat 0 0;
 		}
 	}
 
@@ -135,7 +164,7 @@ body{
 		display: table-cell;
 		width: 25%;
 		vertical-align: middle;
-		
+
 		p{
 			margin: 2px 0;
 		}
@@ -150,14 +179,24 @@ body{
 			background: image-url('aminko/sendmail.png') no-repeat left top;
 			padding: 4px 0 4px 30px;
 		}
-		
+
 		.create{
 			white-space: nowrap;
-			
+
 			img{
 				vertical-align: middle;
 				height: 16px;
 			}
 		}
+	}
+}
+
+.insert-img{
+	display: inline-block;
+	margin: 0 2px;
+	vertical-align: top;
+	
+	img{
+		vertical-align: top;
 	}
 }

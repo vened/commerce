@@ -18,6 +18,13 @@
 //= require bower_components/angular-bootstrap/ui-bootstrap-tpls.min
 
 //= require_directory ./app
+//= require ./bower_components/magnific-popup/jquery.magnific-popup
+
+
+$(document).ready(function ()
+{
+	$('.insert-img').magnificPopup({type: 'image'});
+});
 
 
 //$('.carousel').carousel()

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
-  <title>Rocket-CMS</title>
+  <title>Aminko -  <%= yield :title %></title>
   <%= stylesheet_link_tag 'aminko/aminko', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -15,7 +15,7 @@
   <div class="feedback">
     <a class="feedback-link" href="/contacts/">Обратная связь</a>
 
-    <div class="feedback-phone" title="+7 495 116 51-43">+7 495 116 51-43</div>
+    <!--<div class="feedback-phone" title="+7(495)779-10-23"></div>-->
   </div>
   <%= render_cell :menu, :list %>
 </div>
@@ -33,7 +33,7 @@
 
   <div class="footer-cell">
     <p>Наш телефон:</p>
-    <p class="phone">+7 495 116 51-43</p>
+    <p class="phone">+7 (495) 779 10 23</p>
   </div>
 
   <div class="footer-cell">
@@ -56,6 +56,5 @@
 
 <!--<%= yield %>-->
 <!--</div>-->
-
 </body>
 </html>

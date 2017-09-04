@@ -40,7 +40,8 @@ class Admin::PagesController < Admin::AdminController
   end
 
   def destroy
-    @page.destroy
+    logger.debug @page.name
+    @page.delete
     respond_to do |format|
       format.html { redirect_to admin_pages_url, notice: 'Страница успешно удалена' }
       format.json { head :no_content }

@@ -78,38 +78,87 @@
 
 		var editor = CKEDITOR.replace('body',
 			{
-				"height"                : "300px",
-				"stylesSet"             : [],
-				"extraPlugins"          : "stylesheetparser,richfile,MediaEmbed,showblocks",
-				"removePlugins"         : "scayt,menubutton,image,forms",
-				"contentsCss"           : "/stylesheets/rich/editor.css",
-				"removeDialogTabs"      : "link:advanced;link:target",
-				"startupOutlineBlocks"  : true,
-				"forcePasteAsPlainText" : true,
-				"format_tags"           : "h3;p;pre",
-				"toolbar"               : [
-					[
-						"Format",
-						"Styles"
-					],
-					[
-						"Bold",
-						"Italic",
-						"-",
-						"NumberedList",
-						"BulletedList",
+				"height"               : "600px",
+				"stylesSet"            : [],
+				"extraPlugins"         : "stylesheetparser,richfile,MediaEmbed,showblocks,justify",
+				"removePlugins"        : "scayt,menubutton,image,forms",
+				"contentsCss"          : "/assets/admin/rich/editor.css",
+				"removeDialogTabs"     : "link:advanced;link:target",
+				"startupOutlineBlocks" : true,
+				"forcePasteAsPlainText": true,
+				"format_tags"          : "h2;h3;h4;p;pre",
+				"toolbar"              : [
+					{ name  : 'basicstyles', groups: [
+						'basicstyles',
+						'cleanup'
+					], items: [
+						'Bold',
+						'Italic',
+						'Underline',
+						'Strike',
+						'Subscript',
 						"Blockquote",
-						"-",
+						'-',
+						'RemoveFormat',
+					] },
+					{ name  : 'paragraph', groups: [
+						'list',
+						'indent',
+						'blocks',
+						'align',
+						'bidi'
+					], items: [
+						'NumberedList',
+						'BulletedList',
+						'-',
+						'Outdent',
+						'Indent',
+						'-',
+						'JustifyLeft',
+						'JustifyCenter',
+						'JustifyRight',
+						'JustifyBlock'
+					] },
+					{ name: 'links', items: [
+						'Link',
+						'Unlink'
+					] },
+					{ name: 'insert', items: [
 						"richImage",
-						"-",
-						"Link",
-						"Unlink"
-					],
+						'Table',
+						'HorizontalRule'
+					] },
 					[
 						"Source",
-						"ShowBlocks"
-					]
+						"ShowBlocks",
+						"Maximize"
+					],
+					'/',
+					{ name: 'styles', items: [
+						'Format',
+						'Styles',
+						'Font',
+						'FontSize'
+					] },
+//					{ name: 'colors', items: [
+//						'TextColor',
+//						'BGColor'
+//					] },
+					{ name  : 'clipboard', groups: [
+						'clipboard',
+						'undo'
+					], items: [
+						'Cut',
+						'Copy',
+						'Paste',
+						'PasteText',
+						'PasteFromWord',
+						'-',
+						'Undo',
+						'Redo'
+					] },
 				],
+
 				"language"              : "ru",
 				"richBrowserUrl"        : "/rich/files/",
 				"uiColor"               : "#f4f4f4",
@@ -130,13 +179,9 @@
 
 		editor.on('pasteState', function ()
 		{
-
-			console.log(editor.getData())
 			$scope.$apply(function ()
 			{
-
 				$scope.obj.body = editor.getData();
-
 			});
 
 		});
@@ -146,3 +191,51 @@
 }())
 
 
+//	{ name  : 'paragraph', groups: [
+//		'list',
+//		'indent',
+//		'blocks',
+//		'align',
+//		'bidi'
+//	], items: [
+//		'NumberedList',
+//		'BulletedList',
+//		'-',
+//		'Outdent',
+//		'Indent',
+//		'-',
+//		'JustifyLeft',
+//		'JustifyCenter',
+//		'JustifyRight',
+//		'JustifyBlock'
+//	] },
+//	{ name: 'links', items: [
+//		'Link',
+//		'Unlink'
+//	] },
+//	{ name: 'insert', items: [
+//		'Image',
+//		'Table',
+//		'HorizontalRule'
+//	] },
+//		'/',
+//	{ name: 'styles', items: [
+//		'Styles',
+//		'Format',
+//		'Font',
+//		'FontSize'
+//	] },
+//	{ name: 'colors', items: [
+//		'TextColor',
+//		'BGColor'
+//	] },
+//	{ name: 'tools', items: [
+//		'Maximize',
+//		'ShowBlocks'
+//	] },
+//	{ name: 'others', items: [
+//		'-',
+//		'SelectTemplate'
+//	] }
+//	];
+//
