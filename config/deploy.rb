@@ -6,10 +6,10 @@ require "bundler/capistrano"
 
 set :application, "aminko"
 set :shared_children, shared_children
-set :repository, "git@github.com:vened/commerce.git"
+set :repository, "git@bitbucket.org:vened/aminko.git"
 set :deploy_to, "/home/max/www/aminko"
 set :scm, :git
-set :branch, "aminko.ru"
+set :branch, "copy_server"
 set :user, "max"
 set :group, "staff"
 set :use_sudo, false

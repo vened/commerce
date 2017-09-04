@@ -11,8 +11,8 @@ gem 'cells', '~> 3.11.2'
 #fileupload
 gem 'carrierwave'
 gem 'mini_magick'
-# gem 'rich'
-gem 'rich', :git => 'https://github.com/vened/rich.git'
+gem 'rich'
+# gem 'rich', :git => 'https://github.com/vened/rich.git'
 gem 'paperclip'
 gem 'kaminari'
 
